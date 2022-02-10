@@ -148,6 +148,19 @@ namespace AlbumSplitter {
             }
         }
 
+        private void ViewEditTextTracklistToolStripMenuItem_Click(object sender, EventArgs e) {
+
+            TracklistForm TLF = new(DisplayedTracks);
+            if (TLF.ShowDialog() == DialogResult.OK) {
+
+                for (int i = 0; i < DisplayedTracks.Count; i++) {
+                    DisplayedTracks[i].Title = TLF.Names.ElementAtOrDefault(i) ?? "";
+                }
+
+                PopulateListview();
+            }
+        }
+
         private void PopulateListview() {
 
             //Clear the Displayed Tracks

@@ -49,7 +49,9 @@
             this.modifyTrackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeTrackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.detectTracksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DetectTracksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewEditTextTracklistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clearTracksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.FileTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -246,49 +248,63 @@
             this.modifyTrackToolStripMenuItem,
             this.removeTrackToolStripMenuItem,
             this.toolStripSeparator1,
-            this.detectTracksToolStripMenuItem,
+            this.DetectTracksToolStripMenuItem,
+            this.ViewEditTextTracklistToolStripMenuItem,
+            this.toolStripSeparator2,
             this.clearTracksToolStripMenuItem});
             this.TrackContextMenuStrip.Name = "TrackContextMenuStrip";
-            this.TrackContextMenuStrip.Size = new System.Drawing.Size(148, 120);
+            this.TrackContextMenuStrip.Size = new System.Drawing.Size(194, 148);
             this.TrackContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.TrackContextMenuStrip_Opening);
             // 
             // addTrackToolStripMenuItem
             // 
             this.addTrackToolStripMenuItem.Name = "addTrackToolStripMenuItem";
-            this.addTrackToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.addTrackToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.addTrackToolStripMenuItem.Text = "Add Track";
             this.addTrackToolStripMenuItem.Click += new System.EventHandler(this.AddTrackToolStripMenuItem_Click);
             // 
             // modifyTrackToolStripMenuItem
             // 
             this.modifyTrackToolStripMenuItem.Name = "modifyTrackToolStripMenuItem";
-            this.modifyTrackToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.modifyTrackToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.modifyTrackToolStripMenuItem.Text = "Modify Track";
             this.modifyTrackToolStripMenuItem.Click += new System.EventHandler(this.ModifyTrackToolStripMenuItem_Click);
             // 
             // removeTrackToolStripMenuItem
             // 
             this.removeTrackToolStripMenuItem.Name = "removeTrackToolStripMenuItem";
-            this.removeTrackToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.removeTrackToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.removeTrackToolStripMenuItem.Text = "Remove Track";
             this.removeTrackToolStripMenuItem.Click += new System.EventHandler(this.RemoveTrackToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
             // 
-            // detectTracksToolStripMenuItem
+            // DetectTracksToolStripMenuItem
             // 
-            this.detectTracksToolStripMenuItem.Name = "detectTracksToolStripMenuItem";
-            this.detectTracksToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.detectTracksToolStripMenuItem.Text = "Detect Tracks";
-            this.detectTracksToolStripMenuItem.Click += new System.EventHandler(this.DetectTracksToolStripMenuItem_Click);
+            this.DetectTracksToolStripMenuItem.Name = "DetectTracksToolStripMenuItem";
+            this.DetectTracksToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.DetectTracksToolStripMenuItem.Text = "Detect Tracks";
+            this.DetectTracksToolStripMenuItem.Click += new System.EventHandler(this.DetectTracksToolStripMenuItem_Click);
+            // 
+            // ViewEditTextTracklistToolStripMenuItem
+            // 
+            this.ViewEditTextTracklistToolStripMenuItem.Name = "ViewEditTextTracklistToolStripMenuItem";
+            this.ViewEditTextTracklistToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.ViewEditTextTracklistToolStripMenuItem.Text = "View/Edit Text Tracklist";
+            this.ViewEditTextTracklistToolStripMenuItem.Click += new System.EventHandler(this.ViewEditTextTracklistToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
             // 
             // clearTracksToolStripMenuItem
             // 
             this.clearTracksToolStripMenuItem.Name = "clearTracksToolStripMenuItem";
-            this.clearTracksToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.clearTracksToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.clearTracksToolStripMenuItem.Text = "Clear Tracks";
             this.clearTracksToolStripMenuItem.Click += new System.EventHandler(this.ClearTracksToolStripMenuItem_Click);
             // 
@@ -411,7 +427,7 @@
             // 
             this.AlbumFileDialog.DefaultExt = "mp3";
             this.AlbumFileDialog.FileName = "Album.mp3";
-            this.AlbumFileDialog.Filter = "MP3 Files|*.mp3";
+            this.AlbumFileDialog.Filter = "MPEG Files|*.mp3;*.m4a|All Files|*.*";
             this.AlbumFileDialog.Title = "Choose an album file";
             // 
             // OutputFolderDialog
@@ -491,6 +507,8 @@
         private TextBox MP3SpltBox;
         private OpenFileDialog Mp3SpltFileDialog;
         private ColumnHeader TimingDuritionColumnHeader;
-        private ToolStripMenuItem detectTracksToolStripMenuItem;
+        private ToolStripMenuItem DetectTracksToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem ViewEditTextTracklistToolStripMenuItem;
     }
 }
