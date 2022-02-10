@@ -14,12 +14,11 @@ namespace AlbumSplitter {
     public partial class SilenceDetectForm : Form {
 
         readonly string Input, FFMpeg;
-        List<string> Output = new();
+        readonly List<string> Output = new();
         public List<Track> Tracklist { get; private set; } = new();
-        List<Timing> Silences = new();
+        readonly List<Timing> Silences = new();
         
         string OutputString = "";
-        string ErrorString = "";
 
         public SilenceDetectForm(string Input, string FFMpeg) {
             InitializeComponent();
@@ -32,7 +31,7 @@ namespace AlbumSplitter {
             Close();
         }
 
-        private void CancelBTN_Click(object sender, EventArgs e) { Close(); }
+        private void CancelBTN_Click(object sender, EventArgs e) => Close();
 
         private async void ExecuteSearchButton_Click(object sender, EventArgs e) {
             Enabled = false;
@@ -53,8 +52,7 @@ namespace AlbumSplitter {
             Tracklist.Clear();
             TracksListView.Items.Clear();
             OutputString = "";
-            ErrorString = "";
-
+            
             ProcessStartInfo PSI = new() {
                 CreateNoWindow = true,
                 FileName = FFMpeg,
@@ -79,13 +77,13 @@ namespace AlbumSplitter {
 
             if (P.ExitCode != 0) {
                 Error("An error occurred while SilenceDetect-ing");
-                Error($">{FFMpeg} {Args}{Environment.NewLine}{Environment.NewLine}{ErrorString}");
+                Error($">{FFMpeg} {Args}{Environment.NewLine}{Environment.NewLine}{OutputString}");
                 return P.ExitCode;
             }
 
             if (Output.Count == 0) {
                 Error("There is no (detectable) silence in this track.");
-                Error($">{FFMpeg} {Args}{Environment.NewLine}{Environment.NewLine}{ErrorString}");
+                Error($">{FFMpeg} {Args}{Environment.NewLine}{Environment.NewLine}{OutputString}");
                 return -2;
             }
 
@@ -97,7 +95,7 @@ namespace AlbumSplitter {
 
                 int CutIndex = Output[i].IndexOf(']');
                 if (CutIndex == -1) { continue; }
-                string TempOutput = Output[i].Substring(CutIndex + 2);
+                string TempOutput = Output[i][(CutIndex + 2)..];
                 if (TempOutput.StartsWith("silence_start")) {
 
                     TempOutput = TempOutput.Replace("silence_start:", "").TrimStart().TrimEnd();
@@ -119,7 +117,7 @@ namespace AlbumSplitter {
 
             if (Silences.Count == 0) {
                 Error("No silence timings were generated from the output");
-                Error($">{FFMpeg} {Args}{Environment.NewLine}{Environment.NewLine}{ErrorString}");
+                Error($">{FFMpeg} {Args}{Environment.NewLine}{Environment.NewLine}{OutputString}");
                 return -2;
             }
 
@@ -149,7 +147,7 @@ namespace AlbumSplitter {
             //Add the last track
             Tracklist.Add(new() {
                 Number = CurrentTrack,
-                Timing = new(new(Silences[Silences.Count - 1].End.TotalMiliseconds), new(23, 59, 59, 999))
+                Timing = new(new(Silences[^1].End.TotalMiliseconds), new(23, 59, 59, 999))
             });
 
             //Lastly populate the listview
@@ -207,10 +205,7 @@ namespace AlbumSplitter {
             try {
                 Process.Start("explorer","temp.mp3");
             } catch (Exception) { }
-
         }
-
-        private void P_ErrorDataReceived(object sender, DataReceivedEventArgs e) => ErrorString += e.Data + Environment.NewLine;
 
         private void P_OutputDataReceived(object sender, DataReceivedEventArgs e) {
             OutputString += e.Data + Environment.NewLine;

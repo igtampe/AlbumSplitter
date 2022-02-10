@@ -283,7 +283,7 @@
             this.detectTracksToolStripMenuItem.Name = "detectTracksToolStripMenuItem";
             this.detectTracksToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.detectTracksToolStripMenuItem.Text = "Detect Tracks";
-            this.detectTracksToolStripMenuItem.Click += new System.EventHandler(this.detectTracksToolStripMenuItem_Click);
+            this.detectTracksToolStripMenuItem.Click += new System.EventHandler(this.DetectTracksToolStripMenuItem_Click);
             // 
             // clearTracksToolStripMenuItem
             // 

@@ -128,7 +128,7 @@ namespace AlbumSplitter {
 
         }
 
-        private void detectTracksToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void DetectTracksToolStripMenuItem_Click(object sender, EventArgs e) {
 
             if (!File.Exists(Input)) {
                 Error($"Input file {Input} doesn't exist!");

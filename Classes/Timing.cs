@@ -35,7 +35,6 @@ namespace AlbumSplitter.Classes {
                 this.Miliseconds= Miliseconds;
             }
 
-
             /// <summary>Creates a tiemcode</summary>
             /// <param name="Hours"></param>
             /// <param name="Minutes"></param>
@@ -77,7 +76,7 @@ namespace AlbumSplitter.Classes {
                 List<int> IntSplits = new();
 
                 for (int i = 0; i < SplitString.Length; i++) {
-                    if (SplitString[i].Contains(".")) { 
+                    if (SplitString[i].Contains('.')) { 
                         string[] SubSplit = SplitString[i].Split('.');
                         IntSplits.Add(int.Parse(SubSplit[0]));
                         IntSplits.Add(int.Parse(SubSplit[1]));

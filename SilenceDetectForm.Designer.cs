@@ -27,6 +27,11 @@
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelBTN = new System.Windows.Forms.Button();
             this.FoundTracksGroupbox = new System.Windows.Forms.GroupBox();
+            this.TracksListView = new System.Windows.Forms.ListView();
+            this.TrackNumberColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.TrackStartColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.TrackEndColumnHeader = new System.Windows.Forms.ColumnHeader();
+            this.TrackDurationColumnHeader = new System.Windows.Forms.ColumnHeader();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.OptionsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -34,11 +39,6 @@
             this.SilencedBUpDown = new System.Windows.Forms.NumericUpDown();
             this.SilenceTimeNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.ExecuteSearchButton = new System.Windows.Forms.Button();
-            this.TracksListView = new System.Windows.Forms.ListView();
-            this.TrackNumberColumnHeader = new System.Windows.Forms.ColumnHeader();
-            this.TrackStartColumnHeader = new System.Windows.Forms.ColumnHeader();
-            this.TrackEndColumnHeader = new System.Windows.Forms.ColumnHeader();
-            this.TrackDurationColumnHeader = new System.Windows.Forms.ColumnHeader();
             this.MainTableLayoutPanel.SuspendLayout();
             this.FoundTracksGroupbox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -99,6 +99,43 @@
             this.FoundTracksGroupbox.TabIndex = 2;
             this.FoundTracksGroupbox.TabStop = false;
             this.FoundTracksGroupbox.Text = "Found Tracks";
+            // 
+            // TracksListView
+            // 
+            this.TracksListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.TrackNumberColumnHeader,
+            this.TrackStartColumnHeader,
+            this.TrackEndColumnHeader,
+            this.TrackDurationColumnHeader});
+            this.TracksListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TracksListView.FullRowSelect = true;
+            this.TracksListView.Location = new System.Drawing.Point(3, 19);
+            this.TracksListView.Name = "TracksListView";
+            this.TracksListView.Size = new System.Drawing.Size(448, 402);
+            this.TracksListView.TabIndex = 0;
+            this.TracksListView.UseCompatibleStateImageBehavior = false;
+            this.TracksListView.View = System.Windows.Forms.View.Details;
+            this.TracksListView.DoubleClick += new System.EventHandler(this.TracksListView_DoubleClick);
+            // 
+            // TrackNumberColumnHeader
+            // 
+            this.TrackNumberColumnHeader.Text = "#";
+            this.TrackNumberColumnHeader.Width = 40;
+            // 
+            // TrackStartColumnHeader
+            // 
+            this.TrackStartColumnHeader.Text = "Start";
+            this.TrackStartColumnHeader.Width = 75;
+            // 
+            // TrackEndColumnHeader
+            // 
+            this.TrackEndColumnHeader.Text = "End";
+            this.TrackEndColumnHeader.Width = 75;
+            // 
+            // TrackDurationColumnHeader
+            // 
+            this.TrackDurationColumnHeader.Text = "Duration";
+            this.TrackDurationColumnHeader.Width = 75;
             // 
             // groupBox1
             // 
@@ -194,43 +231,6 @@
             this.ExecuteSearchButton.UseVisualStyleBackColor = true;
             this.ExecuteSearchButton.Click += new System.EventHandler(this.ExecuteSearchButton_Click);
             // 
-            // TracksListView
-            // 
-            this.TracksListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.TrackNumberColumnHeader,
-            this.TrackStartColumnHeader,
-            this.TrackEndColumnHeader,
-            this.TrackDurationColumnHeader});
-            this.TracksListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TracksListView.FullRowSelect = true;
-            this.TracksListView.Location = new System.Drawing.Point(3, 19);
-            this.TracksListView.Name = "TracksListView";
-            this.TracksListView.Size = new System.Drawing.Size(448, 402);
-            this.TracksListView.TabIndex = 0;
-            this.TracksListView.UseCompatibleStateImageBehavior = false;
-            this.TracksListView.View = System.Windows.Forms.View.Details;
-            this.TracksListView.DoubleClick += new System.EventHandler(this.TracksListView_DoubleClick);
-            // 
-            // TrackNumberColumnHeader
-            // 
-            this.TrackNumberColumnHeader.Text = "#";
-            this.TrackNumberColumnHeader.Width = 40;
-            // 
-            // TrackStartColumnHeader
-            // 
-            this.TrackStartColumnHeader.Text = "Start";
-            this.TrackStartColumnHeader.Width = 75;
-            // 
-            // TrackEndColumnHeader
-            // 
-            this.TrackEndColumnHeader.Text = "End";
-            this.TrackEndColumnHeader.Width = 75;
-            // 
-            // TrackDurationColumnHeader
-            // 
-            this.TrackDurationColumnHeader.Text = "Duration";
-            this.TrackDurationColumnHeader.Width = 75;
-            // 
             // SilenceDetectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -240,7 +240,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SilenceDetectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SilenceDetectForm";
+            this.Text = "Silence Detective";
             this.MainTableLayoutPanel.ResumeLayout(false);
             this.FoundTracksGroupbox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
